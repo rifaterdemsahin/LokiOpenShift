@@ -1,0 +1,13 @@
+apiVersion: loki.grafana.com/v1
+kind: LokiStack
+metadata:
+    name: lokistack-sample
+    namespace: loki-operator
+spec:
+    size: 1x.small
+    storage:
+        schemas:
+            - version: v11
+                effectiveDate: "2020-10-24"
+        secret:
+            name: loki-storage-secret
