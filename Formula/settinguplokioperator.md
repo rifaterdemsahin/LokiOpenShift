@@ -14,6 +14,8 @@ oc new-project loki-operator
 ## Step 2: Install the Operator Lifecycle Manager (OLM)
 If OLM is not already installed, follow the instructions [here](https://github.com/operator-framework/operator-lifecycle-manager).
 
+>>> 2 ways to install >>>
+
 ## Step 3: Install the Loki Operator
 1. Go to the OpenShift Web Console.
 2. Navigate to **Operators** > **OperatorHub**.
