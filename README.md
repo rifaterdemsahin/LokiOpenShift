@@ -1,0 +1,2 @@
+# LokiOpenShift
+Loki with OpenShift
