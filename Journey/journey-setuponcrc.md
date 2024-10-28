@@ -15,6 +15,10 @@ oc login --token=sha256~0WYm_orG0ewd9l9taqwXF6GE1feaRdPuk50DLkiAuG4 --server=htt
 oc new-project loki-operator
 ```
 
+
+Create the storage class
+Create the secrets
+
 Go to the web interface and apply the operator
 
 ## Applying the LokiStack Configuration

@@ -12,6 +12,6 @@ spec:
     secret:
       name: logging-loki-s3 
       type: s3 
-  storageClassName: mystorageclassname
+  storageClassName: my-storage-class
   tenants:
     mode: openshift-logging 
