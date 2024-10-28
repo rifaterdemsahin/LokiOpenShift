@@ -28,6 +28,10 @@ A Storage Class in OpenShift allows you to define different types of storage and
     oc apply -f my-storage-class.yaml
     ```
 
+    PS C:\projects\LokiOpenShift\Symbols> oc apply -f my-storage-class.yaml
+storageclass.storage.k8s.io/my-storage-class created
+PS C:\projects\LokiOpenShift\Symbols>
+
 3. **Verify the Storage Class:**
 
     ```sh
