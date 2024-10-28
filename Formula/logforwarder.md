@@ -42,12 +42,12 @@ metadata:
 spec:
     pipelines:
         - name: "default-pipeline"
-            inputRefs:
-                - "application"
-                - "infrastructure"
-                - "audit"
-            outputRefs:
-                - "default-output"
+          inputRefs:
+            - "application"
+            - "infrastructure"
+            - "audit"
+          outputRefs:
+            - "default-output"
 ```
 
 
@@ -61,6 +61,10 @@ spec:
         - name: "default-output"
           type: "elasticsearch"
           url: "https://es.example.com:9200"
+          secret:
+            name: "es-secret"
+          tls:
+            insecureSkipVerify: true
 ```
 
 
@@ -70,3 +74,23 @@ The default service account name used by the log forwarder is `log-forwarder-sa`
 
 
 >>>> if they are missing go ahead and create 
+
+
+
+
+### Default Name for Inputs
+
+The default name for inputs is `default-input`.
+
+### InputRefs
+
+The `inputRefs` field lists the names (`input.name`) of inputs to this pipeline.
+
+```yaml
+spec:
+    inputs:
+        - name: "default-input"
+          type: "application"
+```
+
+
