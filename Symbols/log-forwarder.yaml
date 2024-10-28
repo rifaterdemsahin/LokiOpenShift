@@ -1,0 +1,21 @@
+apiVersion: observability.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: logging
+  namespace: openshift-logging
+spec:
+  managementState: Managed
+  outputs:
+    - name: default-output
+      type: lokiStack
+      loki:
+        tenantID: "your-tenant-id"  # Optional, replace with actual tenant ID if needed
+        url: "https://console-openshift-console.apps-crc.testing"  # Replace with actual LokiStack endpoint URL
+  pipelines:
+    - inputRefs:
+        - default-input
+      outputRefs:
+        - default-output
+      name: default-pipeline
+  serviceAccount:
+    name: log-forwarder-sa
