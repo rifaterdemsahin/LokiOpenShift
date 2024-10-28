@@ -9,6 +9,9 @@ crc login
 oc login --token=sha256~0WYm_orG0ewd9l9taqwXF6GE1feaRdPuk50DLkiAuG4 --server=https://api.crc.testing:6443
 ```
 
+Operator >>> LokiStack ( RedHat )
+
+
 ## Creating a New Project
 
 ```sh
@@ -25,7 +28,7 @@ Go to the web interface and apply the operator
 
 🚀 Apply the LokiStack configuration:
 ```sh
-oc apply -f lokistack.yaml
+oc apply -f loki-stack.yaml
 ```
 
 ## Checking the LokiStack Status
