@@ -5,6 +5,7 @@ To start CodeReady Containers (CRC) with 16 GB of memory in OpenShift, follow th
 1. **Stop CRC if it's running:**
     ```sh
     crc stop
+    crc delete >>> nuke it
     ```
 
 2. **Configure CRC to use 16 GB of memory:**
