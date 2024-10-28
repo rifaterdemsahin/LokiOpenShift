@@ -1,4 +1,8 @@
 # LokiOpenShift
 Loki with OpenShift self learning project 
 
-git pull; git add . && git commit -m "Refine task priorities in kanban board" && git push;clear.exe 
+>> windows workstation push 
+
+PS C:\projects\LokiOpenShift> git pull; git add . ; git commit -m "Refine task priorities in kanban board" ; git push;clear 
+>> 
+
