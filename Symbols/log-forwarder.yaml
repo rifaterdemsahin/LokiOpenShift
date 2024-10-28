@@ -7,10 +7,8 @@ spec:
   managementState: Managed
   outputs:
     - name: default-output
-      type: lokiStack
-      loki:
-        tenantID: "your-tenant-id"  # Optional, replace with actual tenant ID if needed
-        url: "https://console-openshift-console.apps-crc.testing"  # Replace with actual LokiStack endpoint URL
+      type: loki
+      url: http://logging-loki-gateway-http.openshift-logging.svc:8080
   pipelines:
     - inputRefs:
         - default-input
