@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose necessary ports
 EXPOSE 9200 3100
 
-# Set the entry point for the container
-ENTRYPOINT ["python", "main.py"]
+# Set the default command for the container
+CMD ["python", "main.py"]
