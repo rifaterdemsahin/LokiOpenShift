@@ -16,3 +16,11 @@ my-image     latest    6c908a16227c   About an hour ago   286MB
 
 
 docker run -it --name my-run-elastic myelastic:latest bash
+
+docker run -it --privileged --name my-run-elastic22 myelastic:latest bash
+
+sudo sysctl -w vm.max_map_count=262144
+
+
+service elasticsearch start
+
