@@ -7,6 +7,16 @@ WORKDIR /app
 # Install bash
 RUN apt-get update && apt-get install -y bash
 
+# Install Elasticsearch
+RUN apt-get update && apt-get install -y wget gnupg && \
+    wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - && \
+    sh -c 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" > /etc/apt/sources.list.d/elastic-7.x.list' && \
+    apt-get update && apt-get install -y elasticsearch
+
+# Install Loki
+RUN wget -qO - https://repos.loki.dev/GPG-KEY-loki | apt-key add - && \
+    sh -c 'echo "deb https://repos.loki.dev/deb stable main" > /etc/apt/sources.list.d/loki.list' && \
+    apt-get update && apt-get install -y loki
 # Copy the application code
 COPY . /app
 

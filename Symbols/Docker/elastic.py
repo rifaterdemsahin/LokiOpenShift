@@ -33,6 +33,3 @@ def elasticStarter():
     # Log event to LokiStack
     loki_status = log_to_lokistack(event)
     print(f"Logged to LokiStack: {loki_status}")
-
-if __name__ == "__main__":
-    main()
