@@ -1,22 +1,40 @@
-The command you're looking for depends on whether you want to start a container interactively or execute a command in an already running container. Here’s how to use both approaches with `docker run` and `docker exec`:
+### Running Commands in Containers: Interactive Sessions with `docker run` and `docker exec`
 
-### Start an Interactive Container
-To start a container interactively, use `docker run` with the `-it` options:
+The command you need depends on whether you're launching a new container interactively or executing a command in an already running container. Here’s how to use both `docker run` and `docker exec` for these tasks:
+
+---
+
+### Start an Interactive Container with `docker run`
+To start a new container with an interactive terminal session, use the `-it` options:
 ```bash
-docker run -it --name my-running-app my-image:latest
+docker run -it --name my-running-app3 myapp3:latest
 ```
-This opens an interactive terminal session where you can run commands within the container.
+This command starts a container and opens a terminal where you can run commands interactively within the container.
 
-### Run a Container in Detached Mode
-To run the container in the background (detached mode), use:
+---
+
+### Start a Detached Container
+To run the container in the background (detached mode), add the `-d` option:
 ```bash
 docker run -d --name my-running-app my-image:latest
 ```
-This command starts the container and runs it in the background.
+This command launches the container in the background, allowing it to run without an attached terminal session.
 
-### Execute a Command in an Existing Running Container
-To run a command in a container that’s already running, use `docker exec`:
+---
+
+### Run Commands in an Already Running Container with `docker exec`
+To open a new shell or run commands in an existing container, use `docker exec` with the container name:
 ```bash
 docker exec -it my-running-app bash
 ```
-This attaches you to a shell (`bash`) in the running container. You can replace `bash` with any other command you want to execute inside the container.
+This command opens an interactive shell (`bash`) in the specified running container. Replace `bash` with any command you need to execute inside the container.
+
+---
+
+### Example with an Alternative Container Name
+If you have another running container named `my-running-app7`:
+```bash
+docker exec -it my-running-app7 bash
+```
+This command opens an interactive `bash` session in `my-running-app7`. Ensure the container name is correct, as an error (`No such container`) will occur if the specified container isn’t found.
+
