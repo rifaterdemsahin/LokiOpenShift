@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     A[Start CRC] --> B[Login to CRC Console]
     B --> C[Login to OpenShift]
