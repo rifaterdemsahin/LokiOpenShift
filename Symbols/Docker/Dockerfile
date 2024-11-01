@@ -14,9 +14,14 @@ RUN apt-get update && apt-get install -y wget gnupg && \
     apt-get update && apt-get install -y elasticsearch
 
 # Install Loki
-RUN wget -qO - https://repos.loki.dev/GPG-KEY-loki | apt-key add - && \
-    sh -c 'echo "deb https://repos.loki.dev/deb stable main" > /etc/apt/sources.list.d/loki.list' && \
+RUN wget -qO - https://repos.loki.dev/GPG-KEY-loki | tee /etc/apt/trusted.gpg.d/loki.gpg > /dev/null && \
+    echo "deb https://repos.loki.dev/deb stable main" > /etc/apt/sources.list.d/loki.list && \
     apt-get update && apt-get install -y loki
+
+# Install htop
+RUN apt-get update && apt-get install -y htop
+# Update the package list and install procps (which includes top)
+RUN apt-get update && apt-get install -y procps
 # Copy the application code
 COPY . /app
 
