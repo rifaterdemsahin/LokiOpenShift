@@ -1,33 +1,30 @@
-# CRC Loki Operator Setup Process
-
-The following flowchart outlines the steps for setting up the Loki Operator on CRC (CodeReady Containers) and OpenShift.
+Here's a Mermaid diagram to illustrate the steps of implementing the Docker solution to log  events to Elasticsearch/LokiStack. Following that is a brief explanation of each step.
 
 ```mermaid
 graph TD
-    A[Start CRC] --> B[Login to CRC Console]
-    B --> C[Login to OpenShift]
-    
-    C -->|Install| D[Loki Operator]
-    D --> E[Create New Project: loki-operator]
-    E --> F[Create Storage Class and Secrets]
-    
-    F --> G[Apply LokiStack Configuration]
-    G --> H[Check LokiStack Status]
-    H --> I[Get Pods in Loki Operator Namespace]
+    A[Objective: Log Events to Elasticsearch/LokiStack for Searchability]
+    A --> B[Key Results]
+    B --> C[Docker Implementation]
+    C --> D[Step 1: Create Dockerfile]
+    D --> E[Write Dockerfile code to set up Python environment and entry point]
+    C --> F[Step 2: Build Docker Image]
+    F --> G[Execute docker build command to create the image]
+    C --> H[Step 3: Run Docker Container]
+    H --> I[Run container with env variables for Elasticsearch and LokiStack]
+    C --> J[Step 4: Verify Integration]
+    J --> K[Check logs to ensure event forwarding to Elasticsearch/LokiStack]
+    C --> L[Step 5: Monitor and Maintain]
+    L --> M[Use Docker stats and logs for monitoring and alerting]
 ```
 
-## Steps Explained
+### Explanation of Each Step
 
-1. **Start CRC**: Begin by starting the CodeReady Containers environment.
-2. **Login to CRC Console**: Access the CRC console.
-3. **Login to OpenShift**: Authenticate into OpenShift to enable configuration and deployment.
-4. **Install Loki Operator**: Proceed with installing the Loki Operator on OpenShift.
-5. **Create New Project**: Set up a new project dedicated to the Loki Operator, often named `loki-operator`.
-6. **Create Storage Class and Secrets**: Define the necessary storage class and configure secrets for the Loki Operator.
-7. **Apply LokiStack Configuration**: Implement the configuration settings for LokiStack.
-8. **Check LokiStack Status**: Verify the LokiStack deployment status to ensure everything is functioning.
-9. **Get Pods in Loki Operator Namespace**: List the pods in the Loki Operator's namespace to confirm successful deployment.
+1. **Create Dockerfile**: A `Dockerfile` is created with instructions to set up a Python environment, install dependencies, and set up an entry point for logging OpenShift events. The file also exposes the necessary ports for Elasticsearch (9200) and LokiStack (3100).
 
----
+2. **Build Docker Image**: Using the Dockerfile, a Docker image is created with the command `docker build -t openshift-logging:latest .`. This image contains everything needed to log events to Elasticsearch and LokiStack.
 
-This guide should streamline your Loki Operator setup on CRC and OpenShift.
+3. **Run Docker Container**: The Docker container is started with the required environment variables to connect to the Elasticsearch and LokiStack hosts, and it forwards data to the designated ports.
+
+4. **Verify Integration**: Logs from the Docker container are checked to confirm that OpenShift events are being successfully sent to Elasticsearch/LokiStack.
+
+5. **Monitor and Maintain**: Finally, Docker stats and logs are used to monitor the container's performance and ensure that event logging remains operational. This step includes setting up alerts as needed.
