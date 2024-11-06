@@ -1,5 +1,6 @@
 Here's a Mermaid diagram to illustrate the steps of implementing the Docker solution to log  events to Elasticsearch/LokiStack. Following that is a brief explanation of each step.
 
+# ROADMAP
 ```mermaid
 graph TD
     A[Objective: Log Events to Elasticsearch/LokiStack for Searchability]
@@ -17,6 +18,7 @@ graph TD
     L --> M[Use Docker stats and logs for monitoring and alerting]
 ```
 
+# REFERENCES
 ### Explanation of Each Step
 
 1. **Create Dockerfile**: A `Dockerfile` is created with instructions to set up a Python environment, install dependencies, and set up an entry point for logging OpenShift events. The file also exposes the necessary ports for Elasticsearch (9200) and LokiStack (3100).
