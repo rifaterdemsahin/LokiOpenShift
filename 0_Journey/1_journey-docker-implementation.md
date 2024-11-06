@@ -23,7 +23,8 @@ graph TD
 
 1. **Create Dockerfile**: A `Dockerfile` is created with instructions to set up a Python environment, install dependencies, and set up an entry point for logging OpenShift events. The file also exposes the necessary ports for Elasticsearch (9200) and LokiStack (3100).
 
-References > 
+[References](1.1_environments-poc.md)
+
 
 2. **Build Docker Image**: Using the Dockerfile, a Docker image is created with the command `docker build -t openshift-logging:latest .`. This image contains everything needed to log events to Elasticsearch and LokiStack.
 
